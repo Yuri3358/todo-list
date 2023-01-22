@@ -3,8 +3,8 @@ const todoListTemplate = `
 <div id="content" @keyup.enter="addTask" @keyup.esc="deleteTask">
     <header>Lista de Afazeres</header>
     <div id="form">
-        <label for="todo">Tarefa</label> <br/>
-        <input id="todo" autocomplete=off ref="taskField" v-model="taskInput"> <br/>
+        <label for="task">Tarefa</label> <br/>
+        <input id="task" autocomplete=off ref="taskField" v-model="taskInput"> <br/>
         <button class="btn btn-success" @click="addTask">Adicionar</button>
         <button class="btn btn-warning" @click="completeTask">Concluir</button>
         <button class="btn btn-danger" @click="deleteTask">Excluir</button>

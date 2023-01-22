@@ -19,7 +19,7 @@ label {
 }
 
 #form {
-    background-color: rgb(248, 182, 58);
+    background-color: rgb(255, 167, 4);
     margin: auto;
     text-align: center;
     border-style: ridge;
@@ -29,8 +29,10 @@ label {
     margin-bottom: 10px;
 }
 
-#todo {
+#task {
+    background-color: rgb(250, 218, 8);
     font-size: 20px;
+    font-weight: 560;
     border-radius: 12px;
     border-color: black;
     text-align: center;
@@ -42,6 +44,7 @@ label {
     margin-left: 4px;
     margin-top: 20px;
 }
+
 
 .table {
     font-size: 18px;
