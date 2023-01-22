@@ -1,57 +1,62 @@
 const todoList = {
     template: todoListTemplate,
+    
     data() {
         return {
-            todos: Vue.ref([]),
-            todoTitle: "",
+            tasks: Vue.ref([]),
+            taskInput: "",
+            isCompleted: false
         }
     },
     mounted() {
-        this.getTodos()
+        this.getTasks()
     },
     methods: {
-        findTodo() {
+        findTask() {
             let docRef
-            const search = this.todos.value.find(todo => todo.name == this.todoTitle)
+            const search = this.tasks.value.find(task => task.name == this.taskInput)
             if (search) {
-                docRef = colRef.doc(search.todoID)
+                docRef = colRef.doc(search.taskID)
             }
             return docRef
         },
-        getTodos() {
+        getTasks() {
             let data = []
             colRef.get().then(snapshot => {
                 snapshot.forEach(doc => {
-                    const todos = doc.data()
-                    todos.todoID = doc.id
-                    data.push(todos)
+                    const tasks = doc.data()
+                    tasks.taskID = doc.id
+                    data.push(tasks)
                 })
+                this.tasks.value = data
+                this.$refs.taskField.focus()
+                this.taskInput = ""
             })   
-
-            this.todos.value = data
-            this.todoTitle = ""
         },
-        async addTodo() {
-            if (this.todoTitle != "") {
+        async addTask() {
+            if (this.taskInput != "") {
                 await colRef.add({
-                    todo: this.todoTitle,
-                    completed: false
+                    name: this.taskInput.charAt(0).toUpperCase() + this.taskInput.slice(1),
+                    completed: "Não"
                 })
             } else {
                 alert("Preencha o campo!")
             }
+            this.getTasks()
         }, 
-        async deleteTodo() {
-            if (this.todoTitle != "" && !(this.todoTitle in this.todos.value)) {
-                this.findTodo().delete()
+        async deleteTask() {
+            if (this.taskInput != "" && !(this.taskInput in this.tasks.value)) {
+                this.findTask().delete()
             } else {
                 alert("Selecione uma tarefa válida!")
             }
+            this.getTasks()
         },
-        async completeTodo() {
-            await this.findTodo().update({
-                completed: true
+        async completeTask() {
+            await this.findTask().update({
+                completed: "Sim"
             })
+            this.getTasks()
         }
     }
 }
