@@ -40,3 +40,15 @@ label {
     margin-left: 4px;
     margin-top: 20px;
 }
+
+.table {
+    font-size: 18px;
+    text-align: center;
+}
+
+#table-container {
+    overflow: auto;
+    height: 4.7cm;
+    width: 10cm;
+    margin: auto;
+}
