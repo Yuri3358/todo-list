@@ -10,7 +10,7 @@ const firestoreConfig = {
 
 firebase.initializeApp(firestoreConfig)
 
-const db = firestore()
+const db = firebase.firestore()
 const colRef = db.collection("todos")
 
 exports = {colRef}
