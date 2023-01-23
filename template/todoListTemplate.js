@@ -14,8 +14,8 @@ const todoListTemplate = `
         <table class="table table-striped table-secondary">
             <thead>
                 <tr class="table-dark">
-                    <th>Tarefas</th>
-                    <th>Completa?</th>
+                    <th>Tarefas ({{ tasksAmount }})</th>
+                    <th>Completas</th>
                 </tr>
             </thead>
 

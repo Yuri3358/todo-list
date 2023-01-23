@@ -5,7 +5,7 @@ const todoList = {
         return {
             tasks: Vue.ref([]),
             taskInput: "",
-            isCompleted: false
+            tasksAmount: 0
         }
     },
     mounted() {
@@ -29,6 +29,7 @@ const todoList = {
                     data.push(tasks)
                 })
                 this.tasks.value = data
+                this.tasksAmount = data.length
                 this.$refs.taskField.focus()
                 this.taskInput = ""
             })   
