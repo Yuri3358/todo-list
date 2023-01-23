@@ -45,10 +45,10 @@ label {
     margin-top: 20px;
 }
 
-
 .table {
     font-size: 18px;
     text-align: center;
+    border: 2px solid black;
 }
 
 #table-container {
@@ -56,4 +56,38 @@ label {
     height: 4.7cm;
     width: 10cm;
     margin: auto;
+}
+
+@media (max-width: 500px) {
+    body {
+        background: rgb(214, 45, 45);
+    }
+
+    header {
+        font-size: 28px;
+        width: 7.5cm;
+    }
+    
+    label {
+        font-size: 22px
+    }
+
+    #form {
+        width: 7.5cm;
+        height: 4cm;
+    }
+
+    #task {
+        font-size: 16px;
+        width: 7cm;
+    }
+
+    #table-container {
+        width: 7.5cm;
+        height: 4.2cm;
+    }
+
+    .table {
+        font-size: 15px;
+    }
 }
